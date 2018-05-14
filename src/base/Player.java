@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Player {
+    private Scanner teclado = new Scanner(System.in);
+
     private boolean avisar = true;
     private int idPlayer; //Id do jogador
     private int chances; //Chances restantes
@@ -72,8 +74,7 @@ public class Player {
     }
 
     private void IniciarJogada() {
-        String letra = "a";
-
+        String letra;
         while (jogando) {
             //Avisa que vai iniciar uma jogada
             out.println(Codigos.INICIO_JOGADA.getValue());
@@ -85,6 +86,9 @@ public class Player {
 
             //Se for sua vez de jogar
             if (resp == Codigos.ESPERANDO_LETRA.getValue()) {
+                System.out.println("Informe a letra que deseja jogar.");
+
+                letra = teclado.nextLine();
                 //Envia a letra para o servidor
                 out.println(letra);
 

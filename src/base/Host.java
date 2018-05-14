@@ -26,7 +26,7 @@ public class Host {
     private PrintWriter out;
     private Scanner in;
 
-    public void Host(int qntJogadores) {
+    public Host(int qntJogadores) {
         try {
             this.qntJogadores = qntJogadores;
             this.server = new ServerSocket(12345);
