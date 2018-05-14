@@ -1,6 +1,8 @@
 package base;
 
 public enum Codigos {
+    DERROTA(-2),
+    VITORIA(-1),
     ERRO(0),
     ESPERAR_VEZ(1),
     ESPERANDO_LETRA(1),
@@ -8,12 +10,11 @@ public enum Codigos {
     INICIO_JOGADA(3),
     FIM_JOGADA(4),
     FIM_JOGO(5),
-    DERROTA(6),
-    VITORIA(7),
     ACERTOU_LETRA(8),
     ERROU_LETRA(9),
     PALPITES(10),
-    RESPOSTA(11);
+    RESPOSTA(11),
+    ENTRANDO_JOGO(12);
 
     private final int value;
 
