@@ -55,6 +55,8 @@ public class Host {
                     if (qntJogadores - idPLayers <= 0) {
                         //Sala cheia
                         out.println(Codigos.ERRO.getValue());
+
+                        System.out.println("Player tentou entrar na sala que já estava cheia");
                     } else {
                         //OK
                         idPLayers++;
@@ -64,37 +66,41 @@ public class Host {
                         out.println(tamanho);
                         //Envia a quantidade de chances disponivel
                         out.println(chances);
+
+                        System.out.println("Player entrou, id " + idPLayers);
                     }
                     //Verifica se o cliente está tentando iniciar uma jogada.
                 } else if (in.nextInt() == Codigos.INICIO_JOGADA.getValue()) {
+
                     //Pega a ID do jogador que está iniciando a jogada.
                     int idPlayer = in.nextInt();
                     //Verifica se é a vez dele.
                     if (idPlayer == playerAtual) {
                         //Avisa que está esperando ele enviar a letra.
-                        out.println(Codigos.ESPERANDO_LETRA);
+                        out.println(Codigos.ESPERANDO_LETRA.getValue());
 
                         String entrada = in.nextLine();
 
-                        //Verifica se a entrada enviada corresponde a uma letra apenas
-                        if (entrada.length() == 1) {
-                            //Trata a resposta do jogador
-                            ReceberLetra(entrada.charAt(0));
+                        System.out.println("Player " + idPlayer + " enviou a letra " + entrada);
 
-                            playerAtual++;
-                            if (playerAtual > qntJogadores)
-                                playerAtual = 1;
-                        } else {
-                            //Verifica se a informação do proximo jogar foi alterada para informar que o jogo já foi vencido
-                            if (playerAtual == Codigos.VITORIA.getValue()) {
-                                VerificaVitoria();
-                            } else if (playerAtual == Codigos.DERROTA.getValue()) {
-                                VerificaDerrota();
-                            } else
-                                out.println(Codigos.ERRO.getValue());
-                        }
+                        //Trata a resposta do jogador
+                        ReceberLetra(entrada.charAt(0));
+
+                        playerAtual++;
+                        if (playerAtual > qntJogadores)
+                            playerAtual = 1;
                     } else {
-                        out.println(Codigos.ESPERAR_VEZ.getValue());
+                        //Verifica se a informação do proximo jogar foi alterada para informar que o jogo já foi vencido
+                        if (playerAtual == Codigos.VITORIA.getValue()) {
+                            System.out.println("Avisa que o jogo acabou e outro player já tinha acertado a ultima letra");
+                            VerificaVitoria();
+                        } else if (playerAtual == Codigos.DERROTA.getValue()) {
+                            System.out.println("Avisa que o jogo acabou e outro player já perdido a ultima chance");
+                            VerificaDerrota();
+                        } else {
+                            System.out.println("Avisa ao player que não é a vez dele");
+                            out.println(Codigos.ESPERAR_VEZ.getValue());
+                        }
                     }
                 } else {
                     out.println(Codigos.ERRO.getValue());

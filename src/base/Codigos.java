@@ -4,7 +4,7 @@ public enum Codigos {
     DERROTA(-2),
     VITORIA(-1),
     ERRO(0),
-    ESPERAR_VEZ(1),
+    ESPERAR_VEZ(12),
     ESPERANDO_LETRA(1),
     INDICE_LETRA(2),
     INICIO_JOGADA(3),
@@ -14,7 +14,7 @@ public enum Codigos {
     ERROU_LETRA(9),
     PALPITES(10),
     RESPOSTA(11),
-    ENTRANDO_JOGO(12);
+    ENTRANDO_JOGO(1);
 
     private final int value;
 
