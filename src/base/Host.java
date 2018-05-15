@@ -39,7 +39,7 @@ public class Host {
         this.chances = chances;
         this.resposta = resposta;
 
-        tamanho = resposta.length();
+        this.tamanho = resposta.length();
 
         while (true) {
             try {

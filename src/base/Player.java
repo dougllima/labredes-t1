@@ -25,7 +25,7 @@ public class Player {
 
     public Player() {
         try {
-            socket = new Socket("teste", 12345);
+            socket = new Socket("", 12345);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

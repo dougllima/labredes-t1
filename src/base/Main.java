@@ -29,7 +29,7 @@ public class Main {
             System.out.println("\n");
             System.out.println("Informe a palavra que será usada na forca.");
 
-            String palavra = in.nextLine();
+            String palavra = in.next();
 
             System.out.println("Agora é só aguardar os jogadores.");
 
